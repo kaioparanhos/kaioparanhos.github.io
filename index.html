@@ -59,67 +59,18 @@
         <h2 class="heading">Capture The Flag</h2>
 
             <div class="ctf-container">
-                <div class="picoctf-box">
-
-                  <h3 class="title-ctf"><span>PicoCTF |</span> More Cookies</h3>
-
-                  <ul class="about-ctf">
-                    <li><strong>Categoria:</strong> Exploração Web</li>
-                    <li><strong>Valor:</strong> 90 pontos</li>
-                    <li><strong>Descrição do desafio:</strong> I forgot Cookies can Be   modified Client-side, so now I decided to encrypt them! <span>http://mercury.picoctf.net:25992/</span> </li>
-                  </ul>
-
-                  <details>
-                     <summary>Reconhecimento</summary>
-                       <ul id="summaryul">
-                            <li>O <a href="http://mercury.picoctf.net:25992/" target="_blank">link</a> me direciona para à seguinte página web:</li>
-                            <img src="/pics/ctfmc/picoctf1.png" alt="http://mercury.picoctf.net:25992/"><br><br>
-
-                            <li>Verifquei se existia alguns Cookies utilizando a extensão <em>EditThisCookie.</em><br>Encontrei um cookie chamado <em>auth-name</em> que parecia ser codificado em base64:</li>
-                            <img src="/pics/ctfmc/cookiespicoctf.png" title="EditThisCookie" alt="EditThisCookie"><br><br>
-
-                            <li>Utilizei o <a href="https://cyberchef.org/" target="_blank">Cyberchef</a> para decodificá-lo.</li>
-                            <img src="/pics/ctfmc/1decode.png" alt=""><br><br>
-                            <!-- RZQ4Z0I4Og/mR/TTeyhIPBR41/SNxtsFDBKeOtMfmKk/66VYdUXf+0v3MjcBmmO/kfSAdEKPuZ9aExIh+6zxkOwtdPqjJZbrYzdQigO38sz0t4DRtIXpnQOSI3wWFquz -->
-                            <li>O resultado também parece ser base64, então tentei decodificá-lo mais uma vez:</li>
-                            <img src="/pics/ctfmc/finaldecode.png" alt="">
-
-                            <p>O resultado foi um texto incompreensível e ilegível. Isso indica que o cookie era criptografado, de acordo com a descrição do desafio, e codificado em base64 duas vezes. Depois de verificar a primeira dica, que é um link da <a href="https://en.wikipedia.org/wiki/Homomorphic_encryption " target="_blank">Wikipédia</a>, notei que estava lidando com criptografia homomórfica. Outra coisa que reparei é que, na descrição do desafio as letras <span>C</span>, <span>B</span> e <span>C</span> são maiúsculas, o que é uma indicação de que o esquema de criptografia usado para criptografar o cookie é o <strong>Cipher Block Chaining (CBC)</strong>.
-                            <br><br>
-                            <strong><span>#</span></strong><a href="https://www.geeksforgeeks.org/block-cipher-modes-of-operation/" target="_blank" lang="en"> Block Cipher modes of Operation</a>.</p>
-                       </ul>
-                  </details>
-
-                 
-
-                  <details>
-                        <summary>Exploração</summary>
-                        <ul id="summaryul">
-                            <li>Como a descrição do desafio destaca o uso do modo AES-CBC para criptografar o cookie auth_name, isso indica que existe um bit dentro do cookie criptografado responsável por identificar usuários <span>admins </span>de usuários normais.</li>
-                            <br>
-                            <li>Provavelmente há um parâmetro como <span>admin=0</span> e, para modificar esse parâmetro e defini-lo como <span>admin=1</span> eu precisava modificar o bit correto. O problema é que a posição desse bit específico é desconhecida, o que significa que é preciso tentar cada posição e inverter cada bit até que a flag seja encontrada.</li>
-                            <br>
-                            <li>Python Script para realizar o ataque de troca/inversão de bits (Bit-Flipping):</li>
-                             <img src="/pics/ctfmc/codebitflipping.png" alt="exploitMC"><br>
-                            <br>
-
-                            <li>Resultado:</li><br>
-                            <img src="/pics/ctfmc/findflag.png" alt="Flag encontrada">
-
-                        </ul>                    
-                  </details>
-                </div>
+                
             </div>
                 
     </section>
 
     <footer class="footer">
-        <div class="footer-text">
+        <div class="footer-text" id="footer-text">
             <p> &copy; 2023  Kaio Paranhos <span id="verm">|</span>  <span id="amare">|</span>  <span>|</span> Todos os direitos reservados.</p>
         </div>
 
         <div class="footer-icontop">
-            <a href="#home"><i class='bx bxs-chevron-up bx-fade-down' ></i></a>
+            <a href="#home"><i class='bx bxs-chevron-up bx-fade-down' id="footer-icon"></i></a>
         </div>
     </footer>
 

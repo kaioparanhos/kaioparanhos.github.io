@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
+
     --bg-color: #16201b;
-    --second-bg-color: #1c2420;
+    --second-bg-color: #16201b;
     --text-color: #fff;
     --logo-color: rgba(85, 226, 92, 0.959);
     --main-color: rgba(0, 255, 136, 0.562);
@@ -20,12 +21,6 @@
 }
 
 /*===== config ids =====*/
-
-#summaryul {
-    list-style-type: square;
-    margin-left: 1.7rem;
-    margin-top: 1.7rem;
-}
 
 /*MENU MOBILE*/
 #menu-icon {
@@ -195,57 +190,6 @@ section {
     height: auto;
 }
 
-/*DESIGN CTF*/
-.ctf-container {
-    display: flex;
-    margin: 1rem;
-    justify-content: space-between;
-}
-.ctf-container a {
-    color: var(--text-color);
-    transition: 1s;
-}
-
-.ctf-container a:hover {
-    color: var(--main-color);
-}
-
-.title-ctf {
-    font-size: 2.7rem;
-    margin-top: 3.7rem;
-}
-
-.ctf-container .about-ctf {
-
-    font-size: 1.7rem;
-    list-style: none;
-}
-
-.about-ctf strong {
-    font-size: 1.7rem;   
-}
-
-
-.ctf-container ul {
-    font-size: 1.7rem;
-    list-style-type: disc;
-    
-}
-
-.ctf-container summary {
-    font-size: 1.7rem;
-    margin-top: 3rem;
-    padding: 2%;
-    background-color: var(--second-bg-color);
-    color: var(--text-color);
-}
-
-
-
-.ctf-container img {
-    margin-top: 1.1rem;
-}
-
 
 
 /*DESIGN TAG FOOTER*/
@@ -291,6 +235,11 @@ section {
     .ctf-container img {
         width: 60rem;
     }
+
+    #footer-icon {
+        margin-top: 3rem;
+        padding: 3rem;
+    }
 }
 
 @media (max-width: 991px){
@@ -309,11 +258,15 @@ section {
     .footer {
         padding: 2rem 3%;
     }
+
+    #footer-icon {
+        margin-top: 2rem;
+    }
 }
 
 @media (max-width: 768px){
-    html {
-        font-size: 50%;
+ html {
+        font-size: 55%;
     }
 
     #menu-icon {
@@ -355,17 +308,17 @@ section {
         display: block;
     }
 
-    .about {
-        font-size: .1rem ;
-        flex-direction: column-reverse;
-
-    }
-
-    .ctf-container{
-        flex-direction: column-reverse;
+    .about-content .heading {
         text-align: center;
+        font-size: 3.3rem;
     }
 
+    .about {
+        font-size: 1.1rem;
+        text-align: center;
+        flex-direction: column-reverse;
+
+    }
 
     .about p {
         font-size: 2rem;
@@ -375,15 +328,19 @@ section {
         flex-direction: column-reverse;
     }
 
+    #footer-icon {
+        margin-top: 1.7rem;
+    }
+
     .footer p {
         font-size: 1.3rem;
         text-align: center;
-        margin-top: .1rem;   
+        margin-top: 1rem;   
     }
+
+
 }
-
-
-
+   
 @media (max-width: 416px) {
     .home {
         flex-direction: column;
@@ -412,37 +369,46 @@ section {
         font-size: 1.5rem;
     }
 
+}
 
-    .ctf-container{
+@media (max-width: 320px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .home-content p {
+        font-size: 1.5rem;
+    }
+
+    .about {
         flex-direction: column-reverse;
+    }
+
+    .about-content .heading {
+        text-align: center;
+    }
+    
+    .about p {
+        text-align: center;
+        font-size: 1.5rem;
     }
 
     .capturetheflag .heading {
         text-align: center;
-        font-size: 3.3rem;
+        font-size: 2.5rem;
     }
 
-    .title-ctf {
-        text-align: center;
-        font-size: 2.3rem;
+    #footer-icon {
+        padding-top: 1rem;
     }
 
-    .capturetheflag .about-ctf {
-        text-align: center;
-        font-size: 1.3rem;
-    }
-
-    .capturetheflag ul strong {
-        font-size: 1.6rem;
-    }
-
-    .ctf-container details summary {
-        text-align: center;
-        font-size: 2.1rem;
-    } 
-
-    .ctf-container img {
-        align-items: center;
-        width: 47rem;
+    .footer p {
+        font-size: .9rem;
     }
 }
