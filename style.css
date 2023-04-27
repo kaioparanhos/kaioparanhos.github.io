@@ -170,7 +170,7 @@ section {
 }
 
 .about-content p {
-    
+    line-height: 3.2rem;
     font-size: 1.9rem;
     margin: 1rem 0 1rem;
     height: auto;
@@ -196,32 +196,54 @@ details {
 }
 
 summary {
-    font-size: 1.7rem;
-    color: var(--second-main-color);
+    font-size: 2rem;
+    color: var(--main-color);
 }
 
 .ctfdescription {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     list-style: none;
     color: var(--text-color);
 }
 h3 {
-    margin-top: 3rem;
-    font-size: 2.2rem;
+    margin-top: 3.1rem;
+    font-size: 1.9rem;
+    font-weight: 450;
 }
 
 ol {
     margin-top: 2rem;
+    font-size: 1.7rem;
 
+}
+
+ol li {
+    font-size: 1.5rem;
+}
+
+ol p {
+    font-size:1.5rem ;
 }
 
 .code-ex {
+
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    
+    color:rgb(223, 219, 219);
     background-color:var(--second-bg-color);
 }
 
+.code-p {
+    font-size: 1.5rem;
+    color:rgb(160, 155, 155);
+}
+
+
 /*code colors*/
 .code-red {
-    color: rgba(223, 38, 38, 0.856);
+    color: rgba(236, 56, 56, 0.856);
 }
 .code-yellow {
     color: rgb(213, 240, 64);
@@ -231,7 +253,7 @@ ol {
     color: rgb(105, 214, 55);
 }
 .code-blue {
-    color: rgb(63, 29, 252);
+    color: rgb(86, 61, 226);
 }
 
 .code-purp {
