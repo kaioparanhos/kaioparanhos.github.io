@@ -3,13 +3,14 @@
 :root {
 
     --bg-color: #16201b;
-    --second-bg-color: #16201b;
+    --second-bg-color: #1c2922;
     --text-color: #fff;
-    --logo-color: rgba(85, 226, 92, 0.959);
     --main-color: rgba(0, 255, 136, 0.562);
+    --second-main-color: rgba(85, 226, 92, 0.959); 
 }
 
 * {
+
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -20,62 +21,36 @@
     text-decoration: none; 
 }
 
-/*===== config ids =====*/
-
-/*MENU MOBILE*/
-#menu-icon {
-    font-size: 2.7rem;
-    color: var(--logo-color);
-    display: none; 
-}
-
-#verm {
-    color: red;
-}
-
-#amare {
-    color: yellow;
-}
-
 html {
+
     font-size: 62.2%;
     /*overflow-x: hidden;*/
 }
-html,
-body {
-    height: 100vh;
-    text-rendering: optimizeLegibility;
-}
 
 body {
+
     font-size: 1.6rem;
     background: var(--bg-color);
     color: var(--text-color);
 }
 
-/*PADRÃO TAG SPAN */
-span {
-    color: var(--main-color);
+
+html,
+body {
+
+    height: 100vh;
+    text-rendering: optimizeLegibility;
 }
 
-span.term-lx {
-    color: var(--logo-color);
-}
-
-/*PADRÃO CLASS HEADING*/
-.heading {
-    text-align: center;
-    font-size: 3.7rem;
-}
-
-/*PADRÃO TAG SECTION*/
 section {
+
     min-height: 100vh;
     padding: 10rem 10% 10rem;
 }
 
-/*HEADER DESIGN*/
+/*===== HEADER CONTENT DESIGN  =====*/
 .header {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -92,20 +67,26 @@ section {
     z-index: 100%;
 }
 
-
-/*LOGO DESIGN*/
 .logo {
+
     font-size: 1.7rem;
     color: var(--text-color);
     font-weight: 600;
     cursor: default;
 }
 
-.logo .term-lx {
-    color: var(--logo-color);
+.term-lx {
+
+    color: var(--second-main-color);
 }
 
-/*NAV DESIGN*/
+#menu-icon {
+
+    font-size: 2.7rem;
+    color: var(--second-main-color);
+    display: none; 
+}
+
 .navbar a {
 
     font-size: 1.6rem;
@@ -116,42 +97,38 @@ section {
 
 .navbar a:hover,
 .navbar a.active {
+
     color: var(--main-color);   
 }
 
-/*nav {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;   
-}*/
-
-/*HOME DESIGN*/
+/*===== SECTION HOME DESIGN  =====*/
 .home {
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home-content h3 {
+.home-content h1 {
+
     font-size: 3.7rem;
-    font-weight: 639;
+    font-weight: 640;
     height: auto;
 }
 
+.home .term-lx {
+    font-size: 4.4rem;
+    font-weight: 780;
+}
+
 .home-content p {
+
     line-height: 3.2rem;
     font-size: 1.9rem;
     margin: 1rem 0rem 0rem;
     height: auto;
 }
 
-
-
-/*SOCIAL MEDIA ICONS DESIGN*/
 .social-media a {
     
     display: inline-flex;
@@ -166,8 +143,9 @@ section {
     
 }
 
-/*ABOUT DESIGN*/
+/*===== SECTION ABOUT DESIGN  =====*/
 .about {
+
     display: flex;
     justify-content: center;
 
@@ -178,18 +156,87 @@ section {
     background: var(--second-bg-color);
 }
 
-.about-content h2 {
-    
+
+.about .heading {
+    font-size: 3.7rem;
     text-align: left;
+    font-weight: 700;
     line-height:1rem 0rem;
 }
 
+.maincolor {
+
+    color: var(--main-color);
+}
+
 .about-content p {
+    
     font-size: 1.9rem;
     margin: 1rem 0 1rem;
     height: auto;
 }
 
+/*===== SECTION CTF DESIGN  =====*/
+
+.ctf {
+    margin: auto;
+    height: auto;
+    gap: 2rem;
+}
+
+.ctf .heading {
+    font-size: 3.7rem;
+    text-align: center;
+    font-weight: 700;
+    line-height:1rem 0rem;
+}
+details {
+    display: flex;
+    margin-top: 5rem;
+}
+
+summary {
+    font-size: 1.7rem;
+    color: var(--second-main-color);
+}
+
+.ctfdescription {
+    font-size: 1.4rem;
+    list-style: none;
+    color: var(--text-color);
+}
+h3 {
+    margin-top: 3rem;
+    font-size: 2.2rem;
+}
+
+ol {
+    margin-top: 2rem;
+
+}
+
+.code-ex {
+    background-color:var(--second-bg-color);
+}
+
+/*code colors*/
+.code-red {
+    color: rgba(223, 38, 38, 0.856);
+}
+.code-yellow {
+    color: rgb(213, 240, 64);
+}
+
+.code-green {
+    color: rgb(105, 214, 55);
+}
+.code-blue {
+    color: rgb(63, 29, 252);
+}
+
+.code-purp {
+    color: rgb(184, 71, 236);
+}
 
 
 /*DESIGN TAG FOOTER*/
@@ -223,18 +270,13 @@ section {
 
 @media (max-width: 1341px){
 
-    .ctf-container img {
-        width: 70rem;
-    }
+
 }
 @media (max-width: 1200px){
     html {
         font-size: 55%;
     }
 
-    .ctf-container img {
-        width: 60rem;
-    }
 
     #footer-icon {
         margin-top: 3rem;
@@ -251,9 +293,6 @@ section {
         padding: 10rem 3% 2rem;
     }
 
-    .ctf-container img {
-        width: 70rem;
-    }
 
     .footer {
         padding: 2rem 3%;
@@ -399,7 +438,7 @@ section {
         font-size: 1.5rem;
     }
 
-    .capturetheflag .heading {
+    .ctf-content .heading {
         text-align: center;
         font-size: 2.5rem;
     }

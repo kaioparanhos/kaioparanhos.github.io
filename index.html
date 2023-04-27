@@ -15,7 +15,7 @@
 
 <body>
     
-    <header class="header" id="header">
+    <header class="header">
         <a href="#" class="logo">root@m<span class="term-lx">0</span>nke<span class="term-lx">1</span>:</a>
         <i class="bx bx-menu" id="menu-icon"></i> 
 
@@ -23,18 +23,16 @@
             
             <a href="#home" class="active">Home</a>
             <a href="#about">Sobre</a>
-            <a href="#capturetheflag">Capture The Flag</a>
-        </nav>     
-       
-        
+            <a href="#ctf">Capture The Flag</a>
+        </nav>        
     </header>
 
     <section class="home" id="home">
 
         <div class="home-content">
             
-            <h3><span class="term-lx">Olá!</span> Sejam bem-vindos<br>ao meu Portfolio.</h3>
-            <p>O objetivo deste portfolio é essencialmente<br>documentar minha jornada<br> em desafios de Capture the flag.</p>
+            <h1><span class="term-lx">Olá!</span> Sejam bem-vindos<br>ao meu Portfolio.</h1>
+            <p>O objetivo deste portfolio é essencialmente documentar <br>minha jornada em desafios de Capture the flag.</p>
              
             <div class="social-media">
                 <a href="https://www.linkedin.com/in/kaioparanhos/" target="_blank"><i class='bx bxl-linkedin-square' ></i></a>
@@ -47,7 +45,7 @@
 
     <section class="about" id="about">
         <div class="about-content">
-            <h2 class="heading"><span>Sobre mim</span></h2>
+            <h2 class="heading"><span class="maincolor">Sobre mim</span></h2>
                 <p>Meu nome é Kaio Paranhos, sou Desenvolvedor back-end e estudante de Cibersegurança.
                     Gosto de pesquisar e aprender novas tecnologias usando plataformas de cibersegurança online, como TryHackMe, HackTheBox, PicoCTF e outras plataformas de CTF.
                     Participo de eventos e Bootcamps relacionados à segurança cibernética para me manter atualizado e aprimorar continuamente minhas habilidades.
@@ -55,18 +53,85 @@
         </div>
     </section>
 
-    <section class="capturetheflag" id="capturetheflag">
-        <h2 class="heading">Capture The Flag</h2>
+    <section class="ctf" id="ctf">      
+        <div class="ctf-content">
 
-            <div class="ctf-container">
-                
-            </div>
-                
+            <h2 class="heading">Capture The Flag</h2>
+
+            <details> 
+                <summary> PicoCTF | | More Cookies <br>
+                    <ul class="ctfdescription"> 
+                        <li>Categoria: Exploração Web </li>
+                        <li>Descrição:</li>
+                        <li>Pontos:</li>
+                    </ul>
+                </summary>
+                    
+
+                <h3>Solução:</h3>
+
+                    <ol>
+                        <li> O link nos direciona para a seguinte página web:<br>
+                            "Bem-vindo à minha página de pesquisa de cookies. Somente o administrador pode usá-la!"</li><br>
+
+                        <li>Uma vez que o título do desafio se refere a Cookies, vamos verificar se existem alguns.</li>
+                        <li>Existe um cookie chamado auth_name que parece ser codificado em base64, com o seguinte valor:</li>
+                        <p>VALOR DO Cookie</p><br>
+
+                        <li>Vamos decodificá-lo usando Cyberchef.</li>
+                        <li>O resultado também parece ser codificado em base64:</li>
+                        <p>RESULTADO</p><br>
+
+                        <li>Vamos tentar mais uma vez!</li>
+                        <li>Desta vez, temos um texto sem sentido e ilegível:</li>
+                        <p>Resultado</p><br>
+
+                        <li>Isso indica que o cookie foi criptografado, de acordo com a descrição do desafio.</li><br>
+
+                        <h4>Dica 1:</h4>
+                        <p>A primeira dica um link que nos direciona para uma página da Wikipédia sobre um método de criptografia que se chama Criptografia homomórfica. A Criptografia homomórfica permite que você execute operações em texto criptografado. Além disso, notei que as letras "CBC" estão estranhamente maiúsculas na descrição do desafio, isso quer dizer que o encadeamento de blocos cifrados (CBC) é usado. O CBC depende do bloco de texto cifrado anterior para criptografar/descriptografar o pŕoximo bloco de texto simples/cifrado, ou seja, ele é vulnerável a um ataque Bit-flipping.</p> <br>                
+                        
+                        <p>Escrevi um script.py para concluir esse ataque. O script percorre todos os bits no cookie e vira cada um até que a flag seja encontrada.</p>
+
+                        <div class="code-ex">
+                            <pre>
+                                <code>
+                                                <span class="code-red">import</span> requests
+                                                <span class="code-red">from</span> base64 <span class="code-red">import</span> *
+
+                                                Target = <span class="code-yellow">"http://mercury.picoctf.net:25992/"</span>
+
+                                                session = requests.Session()
+
+                                                session.get(Target)
+
+                                                Cookie = session.cookies[<span class="code-yellow">"auth_name"</span>]
+
+                                                Raw_Cookie = b64decode(b64decode(Cookie))
+
+                                                <span class="code-green">for</span> byte_index <span class="code-green">in</span> <span class="code-blue">range</span>(<span class="code-blue">len</span>(Raw_Cookie)):
+
+                                                    <span class="code-green">for</span> bit_index <span class="code-green">in</span> <span class="code-blue">range</span>(<span class="code-purp">0</span>, <span class="code-purp">8</span>):
+                                                        Potential_Raw_Cookie = Raw_Cookie[<span class="code-purp">0</span>:byte_index] + (Raw_Cookie[byte_index] ^ (<span class="code-purp">1</span> << bit_index)).to_bytes(<span class='code-purp'>1</span>,
+                                                        <span class='code-yellow'>'big</span>') + Raw_Cookie[byte_index + 1:]
+
+                                                        Potential_Cookie = b64encode(b64encode(Potential_Raw_Cookie)).decode()
+                                                        r = requests.get(Target, cookies={<span class="code-yellow">"auth_name"</span>: Potential_Cookie})
+
+                                                        <span class="code-green">if</span> <span class="code-yellow">'picoCTF{'</span> in r.text:
+                                                        <span class="code-green">print</span>(<span class="code-yellow">"\n[*] FLAG ENCONTRADA: "</span> + r.text.split(<span>"<code>"</span>)[<span class="code-purp">1</span>].split("</code>")[<span class="code-purp">0</span>])
+                                                            exit()
+                                </code>
+                            </pre>
+                        </div>
+                    </ol>
+            </details>           
+        </div>                
     </section>
 
     <footer class="footer">
         <div class="footer-text" id="footer-text">
-            <p> &copy; 2023  Kaio Paranhos <span id="verm">|</span>  <span id="amare">|</span>  <span>|</span> Todos os direitos reservados.</p>
+            <p> &copy; 2023  Kaio Paranhos | Todos os direitos reservados.</p>
         </div>
 
         <div class="footer-icontop">
