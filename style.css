@@ -197,8 +197,16 @@ details {
 
 summary {
     font-size: 2rem;
-    color: var(--main-color);
+    font-weight: 505;
+    padding: 1.3%;
+
+    border-bottom: 2px solid var(--second-main-color);
+    border-radius: 1.2rem;
+    background-color: var(--second-bg-color);
+    color: var(--text-color);
 }
+    
+    
 
 .ctfdescription {
     font-size: 1.7rem;
