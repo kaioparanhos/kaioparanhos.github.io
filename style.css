@@ -45,7 +45,7 @@ section {
     min-height: 100vh;
 }
 
-/*===== HEADER CONTENT DESIGN  =====*/
+
 .header {
     display: flex;
     align-items: center;
@@ -75,7 +75,7 @@ section {
 }
 
 #menu-icon {
-    font-size: 1rem;
+    font-size: 2.4rem;
     color: var(--second-main-color);
     display: none; 
 }
@@ -92,12 +92,11 @@ section {
     color: var(--main-color);   
 }
 
-/*===== SECTION HOME DESIGN  =====*/
+
 
 .home-content h1 {
     font-size: 3rem;
     font-weight: 640;
-    height: auto;
 }
 
 .home .term-lx {
@@ -114,7 +113,6 @@ section {
 
 .social-media a {
     margin: 1rem 1rem 1.5rem 0rem;
-
     background: transparent;
     font-size: 2.3rem;
     color: var(--main-color);   
@@ -145,11 +143,10 @@ section {
 /*===== SECTION CTF DESIGN  =====*/
 
 .ctf-content .heading {
-    /*Configurar altura*/
     font-size: 3rem;
-    text-align: center;
     font-weight: 700; 
 }
+
 
 details {
     margin-top: 5rem;
@@ -158,10 +155,9 @@ details {
 summary {
     font-size: 1.5rem;
     font-weight: 450;
-    padding: 3%;
-
-    border-bottom: 1px solid rgb(79, 107, 67);
-    border-radius: .3rem;
+    padding: 2%;
+    border-bottom: 1px solid var(--second-main-color);
+    border-radius: .2rem;
     background-color: var(--second-bg-color);
     color: var(--text-color);
 }
@@ -194,7 +190,6 @@ ol p {
 }
 
 .code-ex {
-    /*configurar tamanho da div*/
     font-size: 1.1rem;
     border-radius: 1rem;
     margin-top: 1rem;
@@ -204,7 +199,7 @@ ol p {
 }
 
 .code-p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color:rgb(160, 155, 155);
 }
 
@@ -232,9 +227,7 @@ ul {
 }
 
 
-/*DESIGN TAG FOOTER*/
 .footer {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -243,14 +236,11 @@ ul {
 }
 
 .footer-text p {
-
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .footer-icontop a {
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
     padding: 3rem;
 }
 
@@ -293,7 +283,7 @@ ul {
     .navbar {
         position: absolute;
         top: 100%;
-        left: 23.9rem;
+        left: 24%;
         padding: 1rem 3%;
 
         background:  var(--bg-color);
@@ -305,10 +295,10 @@ ul {
     }
 
     .navbar a {
-        display: inline;
+        display:inline;
         padding: 1.5rem;
         font-size: 2rem;
-        margin: 3rem 0;     
+        margin: 1rem;     
     }
 
     .navbar.active {
@@ -328,8 +318,43 @@ ul {
 }
 
 @media (max-width: 425px){
-    /*configurar depois + 375 - 320 - */
     html {
-        font-size: 32%;
+        font-size: 34%;
     }
+
+    .imgctf {
+        max-width:250px;
+        max-height:200px;
+        width: auto;
+        height: auto;
+    }
+}
+
+@media (max-width: 375px){
+    html {
+        font-size: 30%;
+    }
+
+    .navbar {
+        top: 100%;
+        left: 21%;
+    }
+
+    .imgctf {
+        max-width:230px;
+        max-height:200px;
+        width: auto;
+        height: auto;
+    }
+}
+
+@media (max-width: 320px){   
+    html {
+        font-size: 24%;
+    }
+    
+    .navbar {
+        top: 100%;
+        left: 21%;
+}
 }
