@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;600&display=swap');
+
+:root {
+    --header-height: 3rem;
+
+    --bg-color: #16201b;
+    --second-bg-color:#1c2922;
+    --main-color:rgba(0,255,136, 0.562);
+    --text-color:#fff;
+    --second-text-color:rgba(85,226,92,0.959);
+
+    --body-font:'Prompt', sans-serif;
+    --biggest-font-size:2rem;
+    --h1-font-size:1.5rem;
+    --h2-font-size:1.25rem;
+    --h3-font-size:1.125rem;
+    --p-font-size:.938rem;
+    --p-second-font-size: .738rem;
+    
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed:100;
+}
+
+@media screen and (min-width: 768px) {
+    :root{
+    --biggest-font-size:4.5rem;
+    --h1-font-size:2.25rem;
+    --h2-font-size:1.5rem;
+    --h3-font-size:1.25rem;
+    --p-font-size:.875rem;
+    --p-second-font-size: .538rem; 
+    }
+}
+
+*, ::before,::after {box-sizing: border-box;}
+
+html {scroll-behavior: smooth;}
+
+body {margin: var(--header-height); font-family: var(--body-font); background-color: var(--bg-color);
+    color: var(--text-color); line-height: 1.6; /* COLOCAR: normal-font-size e font-medium*/   }
+
+h1,h2,h3, ul, p {margin: 0;}
+
+h2,h3 {font-weight: 400;}
+
+ul {padding: 0; list-style: none;}
+
+a {text-decoration: none;}
+
+img {max-width: 100%; height: auto; display: block;}
+
+.section {padding: 4rem 0 2rem;}
+.section-title, .section-subtitle {text-align: center;}
+.section-title {font-size: var(--h1-font-size); color: var(--text-color);}
+.section-subtitle {display: block; font-size: var(--p-font-size); font-family: 200;}
+
+.bd-container { max-width: 1024px; width:calc(100% - 2rem); margin-left: var(--mb-2); margin-right: var(--mb-2);}
+
+.bd-grid {display: grid; gap: 1.5rem;}
+
+.oneheader {width: 100%; position: fixed; top: 0; left: 0; z-index: var(--z-fixed); background-color: var(--second-bg-color);}
+
+.nav {height: var(--header-height); display: flex; justify-content: space-between; align-items: center;}
+
+@media screen and (max-width: 768px){
+    .nav_menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding-top: 1.5rem;
+        text-align: center;
+        background-color: var(--second-bg-color);
+        transition: .4s;
+        box-shadow: 0 2px 4px var(--bg-color);
+        border-radius: 0 0 .3rem .3rem;
+    }
+}
+
+.nav_item { margin-bottom: var(--mb-3);}
+.nav_link {color: var(--text-color); transition: .3s;}
+.nav_link:hover {color: var(--second-text-color);}
+.nav_logo {color: var(--text-color);}
+.nav_toggle {font-size: 1.3rem; cursor: pointer; color: var(--second-text-color);}
+
+.show-menu {top: var(--header-height);}
+
+.active-link {position: relative;}
+.active-link::after {content: '';position: absolute;bottom: -.7rem; left: 0; width: 65%; height: 3px; background-color: var(--second-text-color);}
+
+/* .scroll-header { background-color: var(--bg-color); box-shadow: 0 .1px 4px var(--main-color);} #inserir .scroll-header na tag header
+.scroll-header .nav_logo,
+.scroll-header .nav_toggle,
+.scroll-header .nav_link{ color: var(--main-color);}*/
+
+.scrolltop {position: fixed; right: 1rem; bottom: -20%; display: flex; justify-content: center; align-items: center; padding: .5rem; background: var(--second-text-color); border-radius: .3rem; z-index: var(--z-tooltip); transition: .4s; visibility: hidden;}
+.scrolltop:hover { background-color: var(--second-text-color);}
+.scrolltop_icon {font-size: 2rem; color: var(--second-bg-color)}
+.show-scroll {visibility: visible; bottom: 1.5rem;}
+
+.home { background-color: var(--bg-color); overflow: hidden;}
+.home_container {position: relative; height: calc(100vh - var(--header-height)); grid-template: 2, max-content; align-content:center; row-gap: 2rem;}
+.home_data {border-left: 4px solid var(--second-bg-color);padding-left: 1.5rem; z-index: var(--z-tooltip);}
+.home_name {font-size: var(--biggest-font-size);}
+.home_greeting {color: var(--second-text-color); font-size: 1.2rem;}
+.home_welcome {font-size: .813rem;}
+.home_details {font-size: .613rem;}
+.home_greeting, .home_details {display: block; font-weight: var(--p-font-size);}
+.home_social {display: flex; flex-direction: center; margin-left: 2rem;}
+.home_social-icon {width:max-content; font-size: 1rem; margin-bottom: var(--mb-2); color: var(--main-color);}
+.home_social-icon:hover {color: var(--second-text-color);}
+
+.about_data{text-align: center;}
+/*.about_description span {font-size:var(--h2-font-size); font-weight: .3rem; color: var(--second-text-color);}*/
+
