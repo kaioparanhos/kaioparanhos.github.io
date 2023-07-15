@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
     --header-height: 3rem;
@@ -9,7 +9,7 @@
     --text-color:#fff;
     --second-text-color:rgba(85,226,92,0.959);
 
-    --body-font:'Prompt', sans-serif;
+    --body-font:'Poppins', sans-serif;
     --biggest-font-size:2rem;
     --h1-font-size:1.5rem;
     --h2-font-size:1.25rem;
@@ -85,21 +85,17 @@ img {max-width: 100%; height: auto; display: block;}
     }
 }
 
-.nav_item { margin-bottom: var(--mb-3);}
+.nav_item { margin-bottom: var(--mb-3); font-weight: 400;}
 .nav_link {color: var(--text-color); transition: .3s;}
 .nav_link:hover {color: var(--second-text-color);}
-.nav_logo {color: var(--text-color);}
+.nav_logo {color: var(--text-color); font-weight:600;}
+.zero_lg {color: var(--second-text-color);}
 .nav_toggle {font-size: 1.3rem; cursor: pointer; color: var(--second-text-color);}
 
 .show-menu {top: var(--header-height);}
 
 .active-link {position: relative;}
-.active-link::after {content: '';position: absolute;bottom: -.7rem; left: 0; width: 65%; height: 3px; background-color: var(--main-color);}
-
-/*.scroll-header { background-color: var(--bg-color); box-shadow: 0 .1px 1px var(--text-color);} /*#inserir .scroll-header na tag header
-.scroll-header .nav_logo,
-.scroll-header .nav_toggle,
-.scroll-header .nav_link{ color: var(--text-color);}*/
+.active-link::after {content: '';position: absolute;bottom: -.7rem; left: 0; width: 65%; height: 3px; background-color: var(--second-text-color);}
 
 .scrolltop {position: fixed; right: 1rem; bottom: -20%; display: flex; justify-content: center; align-items: center; padding: .5rem; background: var(--second-text-color); border-radius: .3rem; z-index: var(--z-tooltip); transition: .4s; visibility: hidden;}
 .scrolltop:hover { background-color: var(--second-text-color);}
@@ -157,6 +153,7 @@ img {max-width: 100%; height: auto; display: block;}
     }
     .section-title{
         margin-bottom: var(--mb-5);
+        font-weight: 500;
     }
 
     .nav{
@@ -183,7 +180,18 @@ img {max-width: 100%; height: auto; display: block;}
     }
 
     .home_greeting {
-        font-size: 1.27rem;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .home_welcome {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .home_details {
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     .home_social {
@@ -192,8 +200,9 @@ img {max-width: 100%; height: auto; display: block;}
     }
 
     .home_social-icon {
-        margin-right: var(--mb-4);
-        margin-bottom: 0;
+        margin-right: var(--mb-2);
+        margin-bottom: 5;
+        font-size: var(--h2-font-size);
     }
 
     .about_description {
