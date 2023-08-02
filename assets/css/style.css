@@ -128,14 +128,13 @@ img {max-width: 100%; height: auto; display: block;}
 .portfolio_content:hover .porftolio_img {transform: scale(1.02);}
 .active-portfolio {color: var(--second-text-color);}
 
-.button-link {background: none; color: var(--second-text-color); padding: 0; font-size: 1.1rem;} /*  Alterar */
-.button-link:hover {background: none;}
+.button-link {display: inline-block; background: var(--text-color); color: var(--second-bg-color); padding: .25rem .1rem; border-radius: .13rem; transition: 3s;} /*  Alterar */
+.button-link:hover {background: var(--second-text-color);}
 
 .footer { background-color: var(--bg-color); color: var(--text-color); text-align: center;}
 
 .footer_container {padding: 3rem 0;}
 .footer_copy {font-size: .9rem;}
-
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 576px){
